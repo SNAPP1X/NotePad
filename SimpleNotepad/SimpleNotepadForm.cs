@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Printing;
@@ -165,7 +159,6 @@ namespace SimpleNotepad
             if (richTextBox1.SelectionFont != null)
             {
                 System.Drawing.Font currentFont = richTextBox1.SelectionFont;
-                System.Drawing.FontStyle FontStyle;
                 if (richTextBox1.SelectionFont.Bold == true)
                 {
                     newFontStyle = FontStyle.Regular;
@@ -219,7 +212,10 @@ namespace SimpleNotepad
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            if (fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                richTextBox1.SelectionFont = fontDialog1.Font;
+            }
         }
 
         private void leftToolStripMenuItem_Click(object sender, EventArgs e)
